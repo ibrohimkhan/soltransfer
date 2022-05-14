@@ -1,5 +1,12 @@
 use borsh::BorshDeserialize;
-use solana_program::{account_info::{AccountInfo, next_account_info}, entrypoint::ProgramResult, msg, pubkey::Pubkey, program::invoke, system_instruction};
+use solana_program::{
+    account_info::{next_account_info, AccountInfo},
+    entrypoint::ProgramResult,
+    msg,
+    program::invoke,
+    pubkey::Pubkey,
+    system_instruction,
+};
 
 use crate::instruction::TransferInstruction;
 
@@ -15,7 +22,9 @@ impl Processor {
         let instruction = TransferInstruction::try_from_slice(instructions_data)?;
 
         match instruction {
-            TransferInstruction::Transfer { amount } => Self::process_token_transfer(accounts, amount),
+            TransferInstruction::Transfer { amount } => {
+                Self::process_token_transfer(accounts, amount)
+            }
         }
     }
 
