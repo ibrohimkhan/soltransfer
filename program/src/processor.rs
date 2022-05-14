@@ -8,7 +8,7 @@ use solana_program::{
     system_instruction,
 };
 
-use crate::instruction::TransferInstruction;
+use crate::{instruction::TransferInstruction};
 
 pub struct Processor;
 
